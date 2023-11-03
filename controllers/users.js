@@ -25,11 +25,18 @@ const getUser = async (requ, resp) => {
  * @param {*} requ 
  * @param {*} resp 
  */
-const createUser = async (requ, resp) => {
-    const { body } = requ;
-    console.log(body);
-    const data = await userModel.create(body)
-    resp.send({ data });
+const createUser = async (req, res) => {
+    var errors = validationResult(req).array();
+    if (errors) {
+        res.status(400);
+        res.send({ errors: err.array() });
+    }
+    else{
+        const { body } = req;
+        console.log(body);
+        const data = await userModel.create(body)
+        res.send({ data });
+    }
 }
 /**
  * Actualiza un usuario

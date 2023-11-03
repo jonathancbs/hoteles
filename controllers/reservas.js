@@ -2,50 +2,50 @@ const {  reservaModel } = require("../models");
 
 /**
  * Obtener una lista
- * @param {*} requ 
- * @param {*} resp 
+ * @param {*} req 
+ * @param {*} res 
  */
-const getReservas = async (requ, resp) => {
+const getReservas = async (req, res) => {
     const data = await reservaModel.find({});
-    resp.send({ data });
+    res.send({ data });
 }
 
 /**
  * obtener un usuario
- * @param {*} requ 
- * @param {*} resp 
+ * @param {*} req 
+ * @param {*} res 
  */
-const getReserva = async (requ, resp) => {
+const getReserva = async (req, res)  => {
     const data = await reservaModel.find({});
-    resp.send({ data });
+    res.send({ data });
 }
 
 /**
  * Crea un usuario
- * @param {*} requ 
- * @param {*} resp 
+ * @param {*} req 
+ * @param {*} res 
  */
-const createReservas = async (requ, resp) => {
-    const { body } = requ;
+const createReservas = async (req, res) => {
+    const { body } = req;
     console.log(body);
     const data = await reservaModel.create(body)
-    resp.send({ data });
+    res.send({ data });
 }
 /**
  * Actualiza un usuario
- * @param {*} requ 
- * @param {*} resp 
+ * @param {*} req 
+ * @param {*} res 
  */
-const updateReservas = async (requ, resp) => {
+const updateReservas = async (req, res) => {
     const data = await reservaModel.find({});
-    resp.send({ data });
+    res.send({ data });
 }
 
 /**
  * elimina un usuario
- * @param {*} requ 
- * @param {*} resp 
+ * @param {*} req 
+ * @param {*} res 
  */
-const deleteReservas = (requ, resp) => { }
+const deleteReservas = async (req, res) => { }
 
 module.exports = { getReservas, getReservas, createReservas, updateReservas, deleteReservas };

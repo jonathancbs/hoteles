@@ -8,7 +8,7 @@ app.use(express.json());
 const port = process.env.PORT || 3000;
 
 app.use("/api", require("./routes/users"));
-app.use("/api", require("./routes/reservas"));
+// app.use("/api", require("./routes/reservas"));
 
 
 app.listen(port,
