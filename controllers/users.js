@@ -1,3 +1,4 @@
+const { validationResult } = require("express-validator");
 const { userModel } = require("../models");
 
 /**
@@ -26,10 +27,10 @@ const getUser = async (requ, resp) => {
  * @param {*} resp 
  */
 const createUser = async (req, res) => {
-    var errors = validationResult(req).array();
-    if (errors) {
+    let errors = validationResult(req).array();
+    if (errors.length>0) {
         res.status(400);
-        res.send({ errors: err.array() });
+        res.send({ errors: errors });
     }
     else{
         const { body } = req;

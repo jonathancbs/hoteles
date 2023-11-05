@@ -1,9 +1,9 @@
-const { check, validationResult } = require("express-validator");
+const { body, validationResult } = require("express-validator");
 
 const UserRegisterValidation = () => {
     return [
-        check("name").exists().notEmpty().isLength({ min: 1, max: 100 }),
-        check("age").exists().notEmpty().isLength({ min: 1, max: 3 })
+        body("name").exists().notEmpty().isLength({ min: 1, max: 100 }),
+        body("age").exists().notEmpty().isLength({ min: 1, max: 3 })
         /*(req, res, next) => {
             try {
                 validationResult(req).throw();
