@@ -16,6 +16,21 @@ const ReservaScheme = new mongoose.Schema(
         },
         numerohabitaciones: {
             type: Number
+        },
+        numerohabitaciones: {
+            type: Number
+        },
+        desayuno:{
+            type : String
+        },
+        wifi:{
+            type : String
+        },
+        spa:{
+            type : String
+        },
+        email:{
+            type : String
         }
     },
     {
