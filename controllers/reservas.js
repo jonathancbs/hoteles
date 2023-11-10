@@ -7,6 +7,10 @@ const {  reservaModel } = require("../models");
  */
 const getReservas = async (req, res) => {
     const data = await reservaModel.find({});
+    /*
+    var query = { FieldToSearch: new RegExp('^' + keyword) };
+    collection.find(query).toArray(...)
+    */
     res.send({ data });
 }
 
@@ -25,7 +29,7 @@ const getReserva = async (req, res)  => {
  * @param {*} req 
  * @param {*} res 
  */
-const createReservas = async (req, res) => {
+const createReserva = async (req, res) => {
     const { body } = req;
     console.log(body);
     const data = await reservaModel.create(body)
@@ -36,7 +40,7 @@ const createReservas = async (req, res) => {
  * @param {*} req 
  * @param {*} res 
  */
-const updateReservas = async (req, res) => {
+const updateReserva = async (req, res) => {
     const data = await reservaModel.find({});
     res.send({ data });
 }
@@ -46,6 +50,6 @@ const updateReservas = async (req, res) => {
  * @param {*} req 
  * @param {*} res 
  */
-const deleteReservas = async (req, res) => { }
+const deleteReserva = async (req, res) => { }
 
-module.exports = { getReservas, getReservas, createReservas, updateReservas, deleteReservas };
+module.exports = { getReservas, getReserva, createReserva, updateReserva, deleteReserva };
