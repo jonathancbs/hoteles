@@ -56,4 +56,21 @@ const updateUser = async (requ, resp) => {
  */
 const deleteUser = (requ, resp) => { }
 
-module.exports = { getUsers, getUser, createUser, updateUser, deleteUser };
+
+
+const loginUser = async (req, res) =>{
+    let password = req.body.password;
+    let email = req.body.email;
+    const data = await userModel.find({ password : password, email : email});
+    if(data.length>0){
+        res.send( data.shift() );
+    }else{
+        res.status(401);
+        res.send({ errors: ["No se encuentra el correo o el password"] });
+    }
+
+    
+    
+}
+
+module.exports = { getUsers, getUser, createUser, updateUser, deleteUser, loginUser };
